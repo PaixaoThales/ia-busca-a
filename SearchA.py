@@ -124,8 +124,13 @@ def solve_puzzle(node, root, previous):
         solve_puzzle(next_node, root, previous)
 
 
+def generate_puzzle():
+    return [[int(number) for number in input(f'Digite a {times}º linha do puzzle separado por vírgula (três valores): ') \
+        .split(',')] for times in [1,2,3]]
+
 def main():
-    puzzle = [[3,2,4], [1,0,6], [7,5,8]]
+    puzzle = generate_puzzle()
+    print(puzzle)
     cost_puzzle = cost(puzzle)
     root = TreeNode(puzzle=puzzle, cost=cost_puzzle)
     solve_puzzle(node=root, root=root, previous=0)
